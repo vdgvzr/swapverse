@@ -15,10 +15,12 @@ export default function Select({
       {options.map((option) => {
         const value = address
           ? option.decimals + "-" + option.address
+          : symbol
+          ? option.symbol
           : option.id;
 
         return (
-          <option value={value} key={option.id}>
+          <option value={value} key={symbol ? option.symbol : option.id}>
             {symbol ? option.symbol : option.name}
           </option>
         );
